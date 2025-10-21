@@ -84,7 +84,6 @@
         {{-- Select para el tipo de documento --}}
         <flux:label> Tipo De Documento</flux:label>
         <flux:select wire:model="type_document" placeholder="Tipo De Documento...">
-            <flux:select.option value="tarjeta_identidad">Tarjeta Identidad</flux:select.option>
             <flux:select.option value="cedula_ciudadana">Cedula Ciudadana</flux:select.option>
             <flux:select.option value="registro_civil">Registro Civil</flux:select.option>
             <flux:select.option value="pasaporte">Pasaporte</flux:select.option>
