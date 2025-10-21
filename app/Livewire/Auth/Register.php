@@ -13,7 +13,15 @@ use Livewire\Component;
 #[Layout('components.layouts.auth')]
 class Register extends Component
 {
-    public string $name = '';
+    public string $first_name = '';
+
+    public string $middle_name = '';
+
+    public string $first_surname = '';
+
+    public string $middle_surname = '';
+
+    public string $rol = '';
 
     public string $email = '';
 
@@ -21,18 +29,34 @@ class Register extends Component
 
     public string $password_confirmation = '';
 
+    public string $type_document = '';
+
+    public string $number_document = '';
+
+    public string $number_phone = '';
+
     /**
      * Handle an incoming registration request.
      */
     public function register(): void
     {
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'middle_name' => ['string', 'max:255'],
+            'first_surname' => ['required', 'string', 'max:255'],
+            'middle_surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'type_document' => ['required', 'string', 'max:255'],
+            'number_document' => ['required', 'string', 'max:255'],
+            'number_phone' => ['required', 'string', 'max:255'],
         ]);
 
         event(new Registered(($user = User::create($validated))));
+
+        $validated['rol'] = 'user_payer';
+
+        $user->assingRole('user_payer');
 
         Auth::login($user);
 
