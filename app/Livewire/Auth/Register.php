@@ -52,11 +52,11 @@ class Register extends Component
             'number_phone' => ['required', 'string', 'max:255'],
         ]);
 
-        event(new Registered(($user = User::create($validated))));
-
         $validated['rol'] = 'user_payer';
 
-        $user->assingRole('user_payer');
+        event(new Registered(($user = User::create($validated))));
+
+        $user->assignRole('user_payer');
 
         Auth::login($user);
 
