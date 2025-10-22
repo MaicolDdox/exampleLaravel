@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 
-class UserPlayer extends Model
+class UserPayer extends Model
 {
-    
+
     public function user():hasOne
     {
 

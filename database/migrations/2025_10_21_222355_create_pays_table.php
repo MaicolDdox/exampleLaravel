@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             //Relacion con tabla vuelo y usuario pagador
             $table->foreignId('flight_id')->constrained('flights')->onDelete('cascade');
-            $table->foreignId('user_player_id')->constrained('user_players')->onDelete('cascade');
+            $table->foreignId('user_payer_id')->constrained('user_payers')->onDelete('cascade');
 
             //demas campos de la tabla
             $table->string('metodoPago');

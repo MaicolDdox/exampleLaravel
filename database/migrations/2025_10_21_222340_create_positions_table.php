@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
             //Relaciones con tabla vuelo, pasajero y pagador
-            $table->foreignId('user_player_id')->constrained('user_players')->onDelete('cascade')->nullable();
+            $table->foreignId('user_payer_id')->constrained('user_payers')->onDelete('cascade')->nullable();
             $table->foreignId('user_passenger_id')->constrained('user_passengers')->onDelete('cascade')->nullable();
             $table->foreignId('flight_id')->constrained('flights')->onDelete('cascade');
 
