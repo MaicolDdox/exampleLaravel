@@ -3,8 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class UserPassenger extends Model
 {
-    //
+    
+    public function flight():HasOne
+    {
+
+        return $this->HasOne(Flight::class);
+
+    }
+
 }

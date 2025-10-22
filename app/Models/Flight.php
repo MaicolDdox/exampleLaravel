@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class Flight extends Model
@@ -34,6 +35,20 @@ class Flight extends Model
     {
 
         return $this->hasOne(AirLine::class);
+
+    }
+
+    public function userPlayer(): HasMany
+    {
+
+        return $this->hasMany(UserPlayer::class);
+
+    }
+
+    public function user_passenger():HasMany
+    {
+
+        return $this->hasMany(UserPassenger::class);
 
     }
 
