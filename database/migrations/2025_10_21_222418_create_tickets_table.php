@@ -16,7 +16,7 @@ return new class extends Migration
             //Relaciones con tabla usuario pasagero y vuelo y usuario pagador
             $table->foreignId('flight_id')->constrained('flights')->onDelete('cascade');
             $table->foreignId('user_passenger_id')->constrained('user_passengers')->onDelete('cascade')->nullable();
-            $table->foreignId('user_player_id')->constrained('user_players')->onDelete('cascade');
+            $table->foreignId('user_payer_id')->constrained('user_payers')->onDelete('cascade');
 
             $table->string('token');
             $table->timestamps();

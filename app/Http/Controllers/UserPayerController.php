@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserPlayer;
 use Illuminate\Http\Request;
 
-class UserPlayerController extends Controller
+class UserPayerController extends Controller
 {
     /**
      * Display a listing of the resource.

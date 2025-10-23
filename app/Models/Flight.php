@@ -9,12 +9,25 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Flight extends Model
 {
-    
-    public function origin(): HasOne
+    use HasFactory;
+
+    protected $fillable =
+    [
+        'origin_id',
+        'destinie_id',
+        'model_plane_id',
+        'airline_id',
+        'positionValue',
+        'dateHour',
+        'userPassenger',
+        'cantCupos',
+        'estado',
+    ];
+
+    //Relacion para la tabla origin
+    public function origin(): BelongsTo
     {
-
-        return $this->hasOne(Origin::class);
-
+        return $this->belongsTo(Origin::class);
     }
 
     public function destiny(): HasOne
